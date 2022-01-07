@@ -19,13 +19,11 @@ body {
     padding: 2rem;
 }
 
-.contact-info-edit,
-.education-info-edit {
+.info-edit {
     width: 30vw;
 }
 
-.contact-info-form,
-.education-info-form {
+.edit-info-form {
     display: flex;
     flex-direction: column;
 }

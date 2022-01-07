@@ -3,28 +3,28 @@ import react from "react";
 class EducationInfoEdit extends react.Component {
 	render () {
 		return (
-			<div className="education-info-edit">
+			<div className="info-edit">
 				<h2 className="eduction-info-edit-header">
 					Education
 				</h2>
-				<form className="education-info-form">
-					<label htmlFor="school">
+				<form className="edit-info-form">
+					<label className="form-label" htmlFor="school">
 						School name: 
 						<input id="school" type="text" />
 					</label>
-					<label htmlFor="program">
+					<label className="form-label" htmlFor="program">
 						Program: 
 						<input id="program" type="text" />
 					</label>
-					<label htmlFor="from-edu">
+					<label className="form-label" htmlFor="from-edu">
 						Studied from:
-						<input id="from-edu" type="text" />
+						<input id="from-edu" type="date" />
 					</label>
-					<label htmlFor="to-edu">
+					<label className="form-label" htmlFor="to-edu">
 						Until:
-						<input id="to-edu" type="text" />
+						<input id="to-edu" type="date" />
 					</label>
-					<button className='submit-button' type='submit'>Update</button>
+					<button className='submit-button' type='submit'>Add</button>
 				</form>
 			</div>
 		);

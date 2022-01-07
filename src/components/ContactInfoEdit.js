@@ -3,11 +3,11 @@ import react from 'react';
 class ContactInfoEdit extends react.Component {
 	render () {
 		return (
-			<div className='contact-info-edit'>
+			<div className='info-edit'>
 				<h2 className='contact-info-edit-header'>
 					Contact info
 				</h2>
-				<form className='contact-info-form'>
+				<form className='edit-info-form'>
 				<label htmlFor='name'>
 					Name: 
 					<input id='name' type='text' />
