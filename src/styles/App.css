@@ -4,7 +4,28 @@
     padding: 0;
 }
 
+body {
+    width: 100%;
+    height: 100%;
+}
+
+.submit-button {
+    width: 100px;
+    height: 1.5rem;
+}
+
 .header {
     text-align: center;
     padding: 2rem;
+}
+
+.contact-info-edit,
+.education-info-edit {
+    width: 30vw;
+}
+
+.contact-info-form,
+.education-info-form {
+    display: flex;
+    flex-direction: column;
 }

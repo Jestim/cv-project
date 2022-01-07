@@ -7,6 +7,9 @@ class Header extends react.Component {
 				<h1 className='header-text'>
 					CV
 				</h1>
+				<h2 className='header-description'>
+					Create your CV
+				</h2>
 			</div>
 		);
 	}
