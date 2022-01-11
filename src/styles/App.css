@@ -19,6 +19,11 @@ body {
     padding: 2rem;
 }
 
+.container {
+    display: flex;
+    justify-content: center;
+}
+
 .info-edit {
     width: 30vw;
 }
