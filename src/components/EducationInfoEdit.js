@@ -21,7 +21,7 @@ const EducationInfoEdit = (props) => {
 					Until:
 					<input id="to-edu" type="date" />
 				</label>
-				<button className='submit-button' type='submit'>Add</button>
+				<button className='submit-button' onClick={props.onEduSubmit}>Add</button>
 			</form>
 		</div>
 	);

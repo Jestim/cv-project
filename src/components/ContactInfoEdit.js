@@ -4,7 +4,7 @@ const ContactInfoEdit = (props) => {
 			<h2 className='contact-info-edit-header'>
 				Contact info
 			</h2>
-			<form className='edit-info-form' onSubmit={props.onSubmit}>
+			<form className='edit-info-form'>
 			<label htmlFor='name'>
 				Name: 
 				<input id='name' type='text' />
@@ -19,9 +19,9 @@ const ContactInfoEdit = (props) => {
 			</label>
 			<label htmlFor='phone'>
 				Phone number: 
-				<input id='phone' type='text' pattern='\d'/>
+				<input id='phone' type='text'/>
 			</label>
-			<button className='submit-button' type='submit'>Update</button>
+			<button className='submit-button' onClick={props.onInfoSubmit}>Update</button>
 		</form>
 		</div>
 	);
