@@ -13,9 +13,9 @@ const ExperienceInfoEdit = (props) => {
 					Title: 
 					<input id="title" type="text" />
 				</label>
-				<label className="form-label" htmlFor="main-tasks">
+				<label className="form-label" htmlFor="tasks">
 					Main tasks: 
-					<textarea id="main-tasks" type="text" />
+					<textarea id="tasks" type="text" />
 				</label>
 				<label className="form-label" htmlFor="from-exp">
 					Worked from:
@@ -25,7 +25,7 @@ const ExperienceInfoEdit = (props) => {
 					Until:
 					<input id="to-exp" type="date" />
 				</label>
-				<button className='submit-button' type='submit'>Add</button>
+				<button className='submit-button' onClick={props.onExpSubmit}>Add</button>
 			</form>
 		</div>
 	);

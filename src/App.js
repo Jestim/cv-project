@@ -4,6 +4,7 @@ import ContactInfoDisplay from './components/ContactInfoDisplay';
 import ContactInfoEdit from './components/ContactInfoEdit';
 import EducationInfoDisplay from './components/EducationInfoDisplay';
 import EducationInfoEdit from './components/EducationInfoEdit';
+import ExperienceInfoDisplay from './components/ExperienceInfoDisplay';
 import ExperienceInfoEdit from './components/ExperienceInfoEdit';
 import Header from './components/Header';
 
@@ -36,15 +37,11 @@ class App extends react.Component {
         }
     });
 
-    document.getElementById('name').value = '';
-    document.getElementById('address').value = '';
-    document.getElementById('email').value = '';
-    document.getElementById('phone').value = '';
+    this.resetInputElements(['name', 'address', 'email', 'phone']);
   }
 
   onEducationInfoSubmit = (e) => {
     e.preventDefault();
-    console.log('onEducationInfoSubmit called')
 
     const newEdu = {
       school: document.getElementById('school').value,
@@ -58,17 +55,37 @@ class App extends react.Component {
       education: this.state.education.concat(newEdu)
     });
 
-    document.getElementById('school').value = '';
-    document.getElementById('program').value = '';
-    document.getElementById('from-edu').value = '';
-    document.getElementById('to-edu').value = '';
+    this.resetInputElements(['school', 'program', 'from-edu', 'to-edu']);
+  }
 
-    
+  onExperienceInfoSubmit = (e) => {
+    e.preventDefault();
+
+    const newExp = {
+      company: document.getElementById('company').value,
+      title: document.getElementById('title').value,
+      tasks: document.getElementById('tasks').value,
+      from: document.getElementById('from-exp').value,
+      to: document.getElementById('to-exp').value
+    }
+
+    this.setState({
+      experience: this.state.experience.concat(newExp)
+    });
+
+    this.resetInputElements(['company', 'title', 'tasks', 'from-exp', 'to-exp']);
+  }
+
+  resetInputElements = (elementIds) => {
+    elementIds.forEach(element => {
+      document.getElementById(element).value = '';
+    });
   }
 
   render () {
     const contactInfo = this.state.contactInfo;
     const educationInfo = this.state.education;
+    const experienceInfo = this.state.experience;
 
     return (
       <div className="App">
@@ -79,13 +96,16 @@ class App extends react.Component {
               onInfoSubmit={this.onContactInfoSubmit} />
             <EducationInfoEdit 
               onEduSubmit={this.onEducationInfoSubmit} />
-            <ExperienceInfoEdit />
+            <ExperienceInfoEdit 
+              onExpSubmit={this.onExperienceInfoSubmit} />
           </div>
           <div className='display-cv'>
             <ContactInfoDisplay 
               contactInfo={contactInfo} />
             <EducationInfoDisplay 
               education={educationInfo} />
+            <ExperienceInfoDisplay 
+              experience={experienceInfo} />
           </div>
         </div>
       </div>

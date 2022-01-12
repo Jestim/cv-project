@@ -1,5 +1,4 @@
 const EducationInfoDisplay = (props) => {
-	console.log('EducationInfoDisplay called');
 	const education = props.education;
 	return (
 		<div className="info-display">
