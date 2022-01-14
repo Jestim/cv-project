@@ -1,10 +1,10 @@
 const EducationInfoEdit = (props) => {
 	return (
-		<div className="info-edit">
+		<div id="education-info-edit" className="info-section-add hidden">
 			<h2 className="eduction-info-edit-header">
 				Education
 			</h2>
-			<form className="edit-info-form">
+			<form className="add-info-form">
 				<label className="form-label" htmlFor="school">
 					School name: 
 					<input id="school" type="text" />

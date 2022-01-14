@@ -11,7 +11,7 @@ const ExperienceInfoDisplay = (props) => {
 						<p>Position title: {exp.title}</p>
 						<p>Main tasks: {exp.tasks}</p>
 						<p>Worked from: {exp.from}</p>
-						<p>:to {exp.to}</p>
+						<p>Until: {exp.to}</p>
 					</div>
 				);
 			})}

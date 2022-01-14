@@ -1,10 +1,10 @@
 const ContactInfoEdit = (props) => {
 	return (
-		<div className='info-edit'>
+		<div id="contact-info-edit" className='info-section-add hidden'>
 			<h2 className='contact-info-edit-header'>
 				Contact info
 			</h2>
-			<form className='edit-info-form'>
+			<form className='add-info-form'>
 			<label htmlFor='name'>
 				Name: 
 				<input id='name' type='text' />

@@ -16,7 +16,7 @@ body {
 
 .header {
     text-align: center;
-    padding: 2rem;
+    margin: 2rem;
 }
 
 .container {
@@ -24,11 +24,47 @@ body {
     justify-content: center;
 }
 
-.info-edit {
+.info-section-add {
     width: 30vw;
 }
 
-.edit-info-form {
+.info-section-add>h2 {
+    text-align: center;
+}
+
+.add-info-form {
     display: flex;
     flex-direction: column;
+}
+
+.hidden {
+    display: none;
+}
+
+.add-info-button {
+    width: 100px;
+    height: 1.5rem;
+}
+
+.info-display {
+    margin: 0 0 1rem 0;
+}
+
+.info-display>h2 {
+    margin: 0 0 1rem 0;
+}
+
+.edit-button {
+    width: 50px;
+    height: 1.5rem;
+    align-self: center;
+}
+
+.edu {
+    display: flex;
+    margin: 0 0 1rem 0;
+}
+
+.edu-container {
+    margin: 0 1rem 0 0;
 }

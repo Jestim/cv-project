@@ -5,11 +5,15 @@ const EducationInfoDisplay = (props) => {
 			<h2>Education</h2>
 			{education.map((edu) => {
 				return (
-					<div key={edu.id} className="edu">
-						<p>School: {edu.school}</p>
-						<p>Program: {edu.program}</p>
-						<p>from: {edu.from}</p>
-						<p>to: {edu.to}</p>
+					<div key={edu.id} id={edu.id} className="edu">
+						<div className="edu-container">
+							<p>School: {edu.school}</p>
+							<p>Program: {edu.program}</p>
+							<p>from: {edu.from}</p>
+							<p>Until: {edu.to}</p>
+						</div>
+						<button className="edit-button" onClick={props.onEditEdu}>Edit</button>
+						<button className="edit-button" onClick={props.onDeleteEdu}>Delete</button>
 					</div>
 				);
 			})}

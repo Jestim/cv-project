@@ -1,6 +1,4 @@
 const ContactInfoDisplay = (props) => {
-	console.log(props.contactInfo);
-	
 	const { 
 		name, 
 		address, 

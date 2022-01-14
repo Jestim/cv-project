@@ -1,10 +1,10 @@
 const ExperienceInfoEdit = (props) => {
 	return (
-		<div className="info-edit">
+		<div id="experience-info-edit" className="info-section-add hidden">
 			<h2 className="experience-info-edit-header">
 				Experience
 			</h2>
-			<form className="edit-info-form">
+			<form className="add-info-form">
 				<label className="form-label" htmlFor="company">
 					Company name: 
 					<input id="company" type="text" />
