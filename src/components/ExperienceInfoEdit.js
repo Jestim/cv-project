@@ -25,7 +25,7 @@ const ExperienceInfoEdit = (props) => {
 					Until:
 					<input id="to-exp" type="date" />
 				</label>
-				<button className='submit-button' onClick={props.onExpSubmit}>Add</button>
+				<button id="exp-submit-button" className='submit-button' onClick={props.onExpSubmit}>Add</button>
 			</form>
 		</div>
 	);

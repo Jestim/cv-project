@@ -12,8 +12,8 @@ const EducationInfoDisplay = (props) => {
 							<p>from: {edu.from}</p>
 							<p>Until: {edu.to}</p>
 						</div>
-						<button className="edit-button" onClick={props.onEditEdu}>Edit</button>
-						<button className="edit-button" onClick={props.onDeleteEdu}>Delete</button>
+						<button id="edu-edit-button" className="edit-button" onClick={props.onEditEdu}>Edit</button>
+						<button id="edu-delete-button" className="edit-button" onClick={props.onDeleteEdu}>Delete</button>
 					</div>
 				);
 			})}
