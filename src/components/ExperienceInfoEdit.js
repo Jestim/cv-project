@@ -1,4 +1,6 @@
 const ExperienceInfoEdit = (props) => {
+	const { company, title, task, from, to } = props.onChangeValues;
+	
 	return (
 		<div id="experience-info-edit" className="info-section-add hidden">
 			<h2 className="experience-info-edit-header">
@@ -7,23 +9,23 @@ const ExperienceInfoEdit = (props) => {
 			<form className="add-info-form">
 				<label className="form-label" htmlFor="company">
 					Company name: 
-					<input id="company" type="text" />
+					<input id="company" type="text" value={company} onChange={props.handleExperienceInfoChange}/>
 				</label>
 				<label className="form-label" htmlFor="title">
 					Title: 
-					<input id="title" type="text" />
+					<input id="title" type="text" value={title} onChange={props.handleExperienceInfoChange}/>
 				</label>
 				<label className="form-label" htmlFor="tasks">
 					Main tasks: 
-					<textarea id="tasks" type="text" />
+					<textarea id="tasks" type="text" value={task} onChange={props.handleExperienceInfoChange}/>
 				</label>
 				<label className="form-label" htmlFor="from-exp">
 					Worked from:
-					<input id="from-exp" type="date" />
+					<input id="from-exp" type="date" value={from} onChange={props.handleExperienceInfoChange}/>
 				</label>
 				<label className="form-label" htmlFor="to-exp">
 					Until:
-					<input id="to-exp" type="date" />
+					<input id="to-exp" type="date" value={to} onChange={props.handleExperienceInfoChange}/>
 				</label>
 				<button id="exp-submit-button" className='submit-button' onClick={props.onExpSubmit}>Add</button>
 			</form>

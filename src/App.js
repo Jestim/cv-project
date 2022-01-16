@@ -150,6 +150,14 @@ class App extends react.Component {
     });
   }
 
+  handleExperienceInfoChange = (e) => {
+    // TODO
+  }
+
+  onExperienceEditClick = (e) => {
+    // TODO
+  }
+
   onExperienceInfoSubmit = (e) => {
     e.preventDefault();
 
@@ -172,6 +180,21 @@ class App extends react.Component {
     });
 
     // this.resetInputElements(['company', 'title', 'tasks', 'from-exp', 'to-exp']);
+  }
+
+  onExperienceDeleteClick = (e) => {
+    e.preventDefault();
+    const expId = e.target.parentElement.id;
+    const newExpArray = this.state.experience;
+
+    for (let i = 0; i < newExpArray.length; ++i) {
+      if (newExpArray[i].id === expId)
+      newExpArray.splice(i, 1);
+    }
+
+    this.setState({
+      experience: newExpArray
+    });
   }
 
   resetInputElements = (elementIds) => {
@@ -236,7 +259,9 @@ class App extends react.Component {
               onEduSubmit={this.onEducationInfoSubmit}
               onChangeValues={this.state.onChangeValues.education} />
             <ExperienceInfoEdit 
-              onExpSubmit={this.onExperienceInfoSubmit} />
+              handleExperienceInfoChange={this.handleExperienceInfoChange}
+              onExpSubmit={this.onExperienceInfoSubmit} 
+              onChangeValues={this.state.onChangeValues.experience}  />
           </div>
           <div className='display-cv'>
             <ContactInfoDisplay 
@@ -246,7 +271,9 @@ class App extends react.Component {
               onEditEdu={this.onEducationEditClick}
               onDeleteEdu={this.onEducationDeleteClick} />
             <ExperienceInfoDisplay 
-              experience={experienceInfo} />
+              experience={experienceInfo}
+              onEditExp={this.onExperienceEditClick}
+              onDeleteExp={this.onExperienceDeleteClick} />
           </div>
         </div>
       </div>
