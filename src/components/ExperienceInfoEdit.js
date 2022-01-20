@@ -1,5 +1,5 @@
 const ExperienceInfoEdit = (props) => {
-	const { company, title, task, from, to } = props.onChangeValues;
+	const { company, title, task, from, to } = props.onExpChangeValues;
 	
 	return (
 		<div id="experience-info-edit" className="info-section-add hidden">
@@ -17,7 +17,7 @@ const ExperienceInfoEdit = (props) => {
 				</label>
 				<label className="form-label" htmlFor="tasks">
 					Main tasks: 
-					<textarea id="tasks" type="text" value={task} onChange={props.handleExperienceInfoChange}/>
+					<textarea id="task" type="text" value={task} onChange={props.handleExperienceInfoChange}/>
 				</label>
 				<label className="form-label" htmlFor="from-exp">
 					Worked from:

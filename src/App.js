@@ -71,7 +71,8 @@ class App extends react.Component {
 
     this.setState({
       onChangeValues: {
-        education: newEducationInfo
+        education: newEducationInfo,
+        experience: this.state.onChangeValues.experience
       }
     });
   }
@@ -88,17 +89,18 @@ class App extends react.Component {
       if (edu.id === eduId){
         this.setState({
           onChangeValues: {
-            education: edu
+            education: edu,
+            experience: this.state.onChangeValues.experience
           }
         });
       }
     });
 
-    const eduDeleteButton = document.getElementById('edu-edit-button');
-    if (eduDeleteButton.textContent === 'Edit')
-      eduDeleteButton.textContent = 'Close';
+    const expDeleteButton = document.getElementById('edu-edit-button');
+    if (expDeleteButton.textContent === 'Edit')
+      expDeleteButton.textContent = 'Close';
     else  
-      eduDeleteButton.textContent = 'Edit';
+      expDeleteButton.textContent = 'Edit';
 
     document.getElementById('edu-submit-button').classList.toggle('hidden');
   }
@@ -128,7 +130,8 @@ class App extends react.Component {
           from: '',
           to: '',
           id: '',
-        }
+        },
+        experience: this.state.onChangeValues.experience
       }
     });
 
@@ -151,11 +154,46 @@ class App extends react.Component {
   }
 
   handleExperienceInfoChange = (e) => {
-    // TODO
+    const newEexperienceInfo = this.state.onChangeValues.experience;
+    newEexperienceInfo[e.target.id.split('-', 1)[0]] = e.target.value;
+    
+    this.setState({
+      onChangeValues: {
+        education: this.state.onChangeValues.education,
+        experience: newEexperienceInfo
+      }
+    });
   }
 
   onExperienceEditClick = (e) => {
-    // TODO
+    e.preventDefault();
+    const expId = e.target.parentElement.id; 
+    
+    document.getElementById('experience-info-edit').classList.toggle('hidden');
+
+    let newExpArray = this.state.experience;
+
+    newExpArray.forEach(exp => {
+      if (exp.id === expId){
+        console.log('exp update');
+        this.setState({
+          onChangeValues: {
+            education: this.state.onChangeValues.education,
+            experience: exp
+          }
+        });
+      }
+    });
+
+    const expDeleteButton = document.getElementById('exp-edit-button');
+    if (expDeleteButton.textContent === 'Edit')
+      expDeleteButton.textContent = 'Close';
+    else  
+      expDeleteButton.textContent = 'Edit';
+
+    document.getElementById('exp-submit-button').classList.toggle('hidden');
+
+    
   }
 
   onExperienceInfoSubmit = (e) => {
@@ -164,7 +202,7 @@ class App extends react.Component {
     const newExp = {
       company: document.getElementById('company').value,
       title: document.getElementById('title').value,
-      tasks: document.getElementById('tasks').value,
+      task: document.getElementById('task').value,
       from: document.getElementById('from-exp').value,
       to: document.getElementById('to-exp').value,
       id: uniqid(),
@@ -176,10 +214,21 @@ class App extends react.Component {
     });
 
     this.setState({
-      experience: newExpArray
+      experience: newExpArray,
+      onChangeValues: {
+        education: this.state.onChangeValues.education,
+        experience: {
+          company: '',
+          title: '',
+          task: '',
+          from: '',
+          to: '',
+          id: ''
+        }
+      }
     });
 
-    // this.resetInputElements(['company', 'title', 'tasks', 'from-exp', 'to-exp']);
+    // this.resetInputElements(['company', 'title', 'task', 'from-exp', 'to-exp']);
   }
 
   onExperienceDeleteClick = (e) => {
@@ -253,15 +302,15 @@ class App extends react.Component {
             <ContactInfoEdit 
               handleContactInfoChange={this.handleContactInfoChange}
               onInfoSubmit={this.onContactInfoSubmit}
-              onChangeValues={contactInfo} />
+              onContactChangeValues={contactInfo} />
             <EducationInfoEdit 
               handleEducationInfoChange={this.handleEducationInfoChange}
               onEduSubmit={this.onEducationInfoSubmit}
-              onChangeValues={this.state.onChangeValues.education} />
+              onEduChangeValues={this.state.onChangeValues.education} />
             <ExperienceInfoEdit 
               handleExperienceInfoChange={this.handleExperienceInfoChange}
               onExpSubmit={this.onExperienceInfoSubmit} 
-              onChangeValues={this.state.onChangeValues.experience}  />
+              onExpChangeValues={this.state.onChangeValues.experience}  />
           </div>
           <div className='display-cv'>
             <ContactInfoDisplay 

@@ -1,5 +1,5 @@
 const ContactInfoEdit = (props) => {
-	const { name, address, email, phone } = props.onChangeValues;
+	const { name, address, email, phone } = props.onContactChangeValues;
 
 	return (
 		<div id="contact-info-edit" className='info-section-add hidden'>

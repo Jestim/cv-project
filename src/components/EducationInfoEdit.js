@@ -1,5 +1,5 @@
 const EducationInfoEdit = (props) => {
-	const { school, program, from, to } = props.onChangeValues;
+	const { school, program, from, to } = props.onEduChangeValues;
 
 	return (
 		<div id="education-info-edit" className="info-section-add hidden">

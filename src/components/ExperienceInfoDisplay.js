@@ -10,7 +10,7 @@ const ExperienceInfoDisplay = (props) => {
 						<div className="exp-container">
 							<p>Company name: {exp.company}</p>
 							<p>Position title: {exp.title}</p>
-							<p>Main tasks: {exp.tasks}</p>
+							<p>Main tasks: {exp.task}</p>
 							<p>Worked from: {exp.from}</p>
 							<p>Until: {exp.to}</p>
 						</div>
