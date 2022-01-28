@@ -27,7 +27,7 @@ class App extends react.Component {
           program: '',
           from: '',
           to: '',
-          id: ''
+          id: '',
         },
         experience: {
           company: '',
@@ -35,9 +35,10 @@ class App extends react.Component {
           task: '',
           from: '',
           to: '',
-          id: ''
+          id: '',
         }
-      }
+      },
+      editingEnabled: false
     }
   }
 
@@ -50,20 +51,20 @@ class App extends react.Component {
     });
   }
 
-  onContactInfoSubmit = (e) => {
-    e.preventDefault();
+  // onContactInfoSubmit = (e) => {
+  //   e.preventDefault();
 
-    this.setState({
-        contactInfo: {
-          name: document.getElementById('name').value,
-          address: document.getElementById('address').value,
-          email: document.getElementById('email').value,
-          phone: document.getElementById('phone').value
-        }
-    });
+  //   this.setState({
+  //       contactInfo: {
+  //         name: document.getElementById('name').value,
+  //         address: document.getElementById('address').value,
+  //         email: document.getElementById('email').value,
+  //         phone: document.getElementById('phone').value
+  //       }
+  //   });
 
-    this.resetInputElements(['name', 'address', 'email', 'phone']);
-  }
+  //   // this.resetInputElements(['name', 'address', 'email', 'phone']);
+  // }
 
   handleEducationInfoChange = (e) => {
     const newEducationInfo = this.state.onChangeValues.education;
@@ -79,6 +80,7 @@ class App extends react.Component {
 
   onEducationEditClick = (e) => {
     e.preventDefault();
+
     const eduId = e.target.parentElement.id; 
     
     document.getElementById('education-info-edit').classList.toggle('hidden');
@@ -91,7 +93,8 @@ class App extends react.Component {
           onChangeValues: {
             education: edu,
             experience: this.state.onChangeValues.experience
-          }
+          },
+          editingEnabled: !this.state.editingEnabled
         });
       }
     });
@@ -255,6 +258,19 @@ class App extends react.Component {
   onAddInfoClick = (e) => {
     e.preventDefault();
 
+    if (this.state.editingEnabled) {
+      if (document.getElementById('edu-edit-button') !== null)
+        document.getElementById('edu-edit-button').textContent = 'Edit'
+      if (document.getElementById('exp-edit-button') !== null)
+      document.getElementById('exp-edit-button').textContent = 'Edit'
+      
+      const infoSectionAdd = document.querySelectorAll('.info-section-add');
+      for (let i = 0; i < infoSectionAdd.length; ++i) {
+        if (!infoSectionAdd[i].classList.contains('hidden'))
+          infoSectionAdd[i].classList.add('hidden');
+      }
+    }
+
     this.setState({
       onChangeValues: {
         education: {
@@ -272,7 +288,8 @@ class App extends react.Component {
           to: '',
           id: ''
         }
-      }
+      },
+      editingEnabled: false
     })
 
     const infoEditSections = document.querySelectorAll('.info-section-add');
@@ -301,7 +318,6 @@ class App extends react.Component {
           <div className='add-cv-info'>
             <ContactInfoEdit 
               handleContactInfoChange={this.handleContactInfoChange}
-              onInfoSubmit={this.onContactInfoSubmit}
               onContactChangeValues={contactInfo} />
             <EducationInfoEdit 
               handleEducationInfoChange={this.handleEducationInfoChange}

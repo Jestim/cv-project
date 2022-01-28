@@ -23,7 +23,6 @@ const ContactInfoEdit = (props) => {
 				Phone number: 
 				<input id='phone' type='text' value={phone} onChange={props.handleContactInfoChange}/>
 			</label>
-			<button className='submit-button' onClick={props.onInfoSubmit}>Update</button>
 		</form>
 		</div>
 	);
